@@ -62,15 +62,15 @@ git clone https://github.com/Rohit19060/Python-Utils.git
 
 ## 📂 Directory Structure
 
-> [`json-formatter.py`](https://github.com/Rohit19060/Python-Utils/blob/main/json-formatter.py "Json Formatter"): Format Json Files
+> [`json-formatter.py`](https://github.com/Rohit19060/Python-Utils/blob/main/json-formatter.py "Json Formatter") Format Json Files
 
-> [`snippet-formatter`](https://github.com/Rohit19060/Python-Utils/blob/main/snippet-formatter.py "Snippet Formatter"): Format Code into VSCode Snippets
+> [`snippet-formatter.py`](https://github.com/Rohit19060/Python-Utils/blob/main/snippet-formatter.py "Snippet Formatter") Format Code into VSCode Snippets
 
-> [`udpate.py`](https://github.com/Rohit19060/Python-Utils/blob/main/json-formatter.py "Update"): Update Command to Update all the CLI Tools
+> [`udpate.py`](https://github.com/Rohit19060/Python-Utils/blob/main/json-formatter.py "Update") Update Command to Update all the CLI Tools
 
-> [`css-formatter.py`](https://github.com/Rohit19060/Python-Utils/blob/main/css-formatter.py "CSS Formatter"): Format & Sort CSS Files
+> [`css-formatter.py`](https://github.com/Rohit19060/Python-Utils/blob/main/css-formatter.py "CSS Formatter") Format & Sort CSS Files
 
-> [`file-content-sorter.py`](https://github.com/Rohit19060/Python-Utils/blob/main/file-content-sorter.py "File Content Sorter"): Sort Files by Content
+> [`file-content-sorter.py`](https://github.com/Rohit19060/Python-Utils/blob/main/file-content-sorter.py "File Content Sorter") Sort Files by Content
 
 ## 🎊 Future Updates
 
