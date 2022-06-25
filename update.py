@@ -12,6 +12,3 @@ commands = ["deno upgrade",
 
 for c in commands:
     os.system(c)
-
-
-
