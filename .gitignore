@@ -2,3 +2,5 @@ input.txt
 output.txt
 conda/env/*
 dictionary_attack.py
+*.json
+*.txt

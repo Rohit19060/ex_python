@@ -1,17 +1,14 @@
 import platform
 import subprocess
 
+from tqdm import tqdm
+
 
 def run_command(command):
     try:
-        print(f"Running command: {command}")
-        result = subprocess.run(
-            command, shell=True, check=True, text=True, capture_output=True
-        )
-        print(result.stderr)
-        print(result.stdout)
-    except subprocess.CalledProcessError as e:
-        print(f"Command '{command}' failed with error:\n{e.stderr}")
+        subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
+    except subprocess.CalledProcessError:
+        print(f"No update available for {command}")
 
 
 def update_dependencies():
@@ -70,9 +67,11 @@ def update_dependencies():
     elif os_name == "darwin":  # macOS
         commands_to_run.extend(macos_commands)
     elif os_name == "linux":
-        commands_to_run.extend(linux_commands) 
+        commands_to_run.extend(linux_commands)
 
-    for command in commands_to_run:
+    for command in tqdm(
+        commands_to_run, desc="Updating dependencies", unit="command", colour="green"
+    ):
         run_command(command)
 
 
