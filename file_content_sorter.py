@@ -4,10 +4,9 @@ with open("input.txt", "r", encoding="utf-8") as f:
     for i in d:
         y = i.strip()
         # Append it as json data and add it to the list
-        x.append(y)
-    x = sorted(set(x))
+        if y not in x:
+            x.append(y)
 
-with open("output.json", "w", encoding="utf-8") as r:
+with open("output.txt", "w", encoding="utf-8") as r:
     for i in x:
         print(i, file=r)
-        print(",", file=r)

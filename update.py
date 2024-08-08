@@ -28,7 +28,7 @@ def update_dependencies():
         "rustup update",  # Update Rust for all channels
         "pnpm add -g pnpm",
         "yarn set version latest",
-        "npm i -g firebase firebase-tools forever grunt-cli jshint mocha node nodemon npm npm-check-updates react-native-cli typescript vercel sass @angular/cli vue-tsc concurrently yarn pnpm @githubnext/github-copilot-cli --force",
+        "npm i -g firebase firebase-tools forever grunt-cli jshint mocha node nodemon npm npm-check-updates react-native-cli typescript vercel sass @angular/cli vue-tsc concurrently yarn pnpm @githubnext/github-copilot-cli bun wrangler --force",
         "composer global require laravel/installer",
     ]
 
@@ -57,7 +57,6 @@ def update_dependencies():
         "sudo apt-get upgrade -y",
         "pip3 install --upgrade pip",
         "gh extension upgrade gh-copilot",
-        "curl -s https://bun.sh/install | bash",  # Bun installation/upgrade
     ]
 
     commands_to_run = common_commands.copy()

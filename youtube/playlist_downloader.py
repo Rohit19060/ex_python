@@ -12,10 +12,6 @@ youtube = build("youtube", "v3", developerKey=api_key)
 # request = youtube.playlistItems().list(
 #     part="snippet", playlistId="PL3-Wy9Q2edEboK_u0VnYcwtIJYXuzszYS", maxResults=55
 # )
-video_id = "XCrZleaIUO4"
-request = youtube.videos().list(part="snippet,contentDetails,statistics", id=video_id)
-response = request.execute()
-
 base_filename = "video_details"
 
 def extract_video_id(url):
@@ -29,7 +25,7 @@ def extract_video_id(url):
 
 def get_current_json_file_index(base_filename):
     """Returns the index of the current JSON file based on existing files."""
-    index = 1
+    index = 193
     while os.path.isfile(f"{base_filename}_{index}.json"):
         index += 1
     return index
@@ -45,9 +41,11 @@ def get_json_file_lines(filename):
 
 
 def append_video_details_and_save(video_id):
+    print(f"Processing {video_id}")
     """Fetches video details and appends them to a JSON file."""
     request = youtube.videos().list(
-        part="snippet,contentDetails,statistics,liveStreamingDetails,recordingDetails,localizations",
+        # part="snippet,contentDetails,statistics,liveStreamingDetails,recordingDetails,localizations",
+        part="snippet,contentDetails,statistics",
         id=video_id,
     )
     try:
@@ -129,10 +127,10 @@ file_info = {
 # Read the file and process each link
 with open(file_path, "r") as file:
     lines = file.readlines()
-    for line in reversed(lines):
-        url = line.strip()
-        video_id = extract_video_id(url)
-        if video_id:
-            append_video_details_and_save(video_id)
-        else:
-            print(f"Invalid YouTube URL: {url}")
+    for line in lines:
+        # url = line.strip()
+        # video_id = extract_video_id(url)
+        # if video_id:
+        append_video_details_and_save(line.strip())
+        # else:
+        # print(f"Invalid YouTube URL: {url}")
