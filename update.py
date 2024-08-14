@@ -63,14 +63,22 @@ def update_dependencies():
 
     if os_name == "windows":
         commands_to_run.extend(windows_commands)
-    elif os_name == "darwin":  # macOS
+    elif os_name == "darwin":
         commands_to_run.extend(macos_commands)
     elif os_name == "linux":
         commands_to_run.extend(linux_commands)
 
-    for command in tqdm(
-        commands_to_run, desc="Updating dependencies", unit="command", colour="green"
-    ):
+    progress_bar = tqdm(commands_to_run, unit="command", colour="green")
+
+    fixed_width = 20
+
+    for command in progress_bar:
+        command_description = (
+            (command[:fixed_width] + "...")
+            if len(command) > fixed_width
+            else command.ljust(fixed_width)
+        )
+        progress_bar.set_description(f"Running: {command_description}")
         run_command(command)
 
 
