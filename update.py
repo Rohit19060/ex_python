@@ -3,21 +3,19 @@ import subprocess
 
 from tqdm import tqdm
 
-
 def run_command(command):
     try:
         subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
     except subprocess.CalledProcessError:
         print(f"No update available for {command}")
 
-
 def update_dependencies():
     """
     Update various dependencies and tools.
     This function executes a series of commands to update different dependencies and tools.
-    The commands include upgrading Deno, Flutter, Git for Windows, Rust, Scoop, Yarn, NPM,
+    The commands include upgrading Deno, Flutter, Git for Windows, Rust, Scoop, NPM,
     Firebase, Forever, Grunt CLI, JSHint, Mocha, Node.js, Nodemon, npm-check-updates,
-    React Native CLI, TypeScript, Vercel, Sass, Angular CLI, Vue TSC, Concurrently, Yarn,
+    React Native CLI, TypeScript, Vercel, Sass, Angular CLI, Vue TSC, Concurrently,
     PNPM, GitHub Copilot CLI, and the pip package manager for Python.
     """
     os_name = platform.system().lower()
@@ -25,11 +23,11 @@ def update_dependencies():
     common_commands = [
         "deno upgrade",
         "flutter upgrade --force",
-        "rustup update",  # Update Rust for all channels
-        "pnpm add -g pnpm",
-        "yarn set version latest",
-        "npm i -g firebase firebase-tools forever grunt-cli jshint mocha node nodemon npm npm-check-updates react-native-cli typescript vercel sass @angular/cli vue-tsc concurrently yarn pnpm @githubnext/github-copilot-cli bun wrangler --force",
-        "composer global require laravel/installer",
+        "rustup update",
+        "npm i -g vitest firebase firebase-tools node nodemon npm typescript vercel pnpm @githubnext/github-copilot-cli bun wrangler drizzle-kit drizzle-orm  @google/gemini-cli --force",
+        # "pnpm add -g pnpm genkit-sli",
+        # "composer global require laravel/installer",
+        "gh extension upgrade gh-copilot",
     ]
 
     windows_commands = [
@@ -37,7 +35,6 @@ def update_dependencies():
         "scoop update",
         "scoop update *",
         "python.exe -m pip install --upgrade pip",
-        "gh extension upgrade gh-copilot",
         "winget upgrade JanDeDobbeleer.OhMyPosh -s winget",
         "winget upgrade Cloudflare.cloudflared -s winget",
         "choco upgrade make -y",
@@ -47,16 +44,15 @@ def update_dependencies():
         "brew update",
         "brew upgrade",
         "pip3 install --upgrade pip",
-        "gh extension upgrade gh-copilot",
         "brew upgrade oh-my-posh",
         "brew upgrade cloudflared",
     ]
 
     linux_commands = [
+        "curl -f https://zed.dev/install.sh | sh",
         "sudo apt-get update",
         "sudo apt-get upgrade -y",
         "pip3 install --upgrade pip",
-        "gh extension upgrade gh-copilot",
     ]
 
     commands_to_run = common_commands.copy()
@@ -80,7 +76,6 @@ def update_dependencies():
         )
         progress_bar.set_description(f"Running: {command_description}")
         run_command(command)
-
 
 if __name__ == "__main__":
     update_dependencies()

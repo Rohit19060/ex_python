@@ -8,5 +8,5 @@ with open("input.txt", "r", encoding="utf-8") as f:
             x.append(y)
 
 with open("output.txt", "w", encoding="utf-8") as r:
-    for i in x:
+    for i in sorted(x):
         print(i, file=r)
