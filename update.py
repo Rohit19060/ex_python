@@ -3,11 +3,13 @@ import subprocess
 
 from tqdm import tqdm
 
+
 def run_command(command):
     try:
         subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
     except subprocess.CalledProcessError:
         print(f"No update available for {command}")
+
 
 def update_dependencies():
     """
@@ -24,10 +26,9 @@ def update_dependencies():
         "deno upgrade",
         "flutter upgrade --force",
         "rustup update",
-        "npm i -g vitest firebase firebase-tools node nodemon npm typescript vercel pnpm @githubnext/github-copilot-cli bun wrangler drizzle-kit drizzle-orm  @google/gemini-cli --force",
+        "npm i -g vitest firebase firebase-tools node nodemon npm typescript vercel pnpm @github/copilot bun wrangler drizzle-kit drizzle-orm  @google/gemini-cli --force",
         # "pnpm add -g pnpm genkit-sli",
         # "composer global require laravel/installer",
-        "gh extension upgrade gh-copilot",
     ]
 
     windows_commands = [
@@ -37,7 +38,6 @@ def update_dependencies():
         "python.exe -m pip install --upgrade pip",
         "winget upgrade JanDeDobbeleer.OhMyPosh -s winget",
         "winget upgrade Cloudflare.cloudflared -s winget",
-        "choco upgrade make -y",
     ]
 
     macos_commands = [
@@ -49,7 +49,6 @@ def update_dependencies():
     ]
 
     linux_commands = [
-        "curl -f https://zed.dev/install.sh | sh",
         "sudo apt-get update",
         "sudo apt-get upgrade -y",
         "pip3 install --upgrade pip",
@@ -76,6 +75,7 @@ def update_dependencies():
         )
         progress_bar.set_description(f"Running: {command_description}")
         run_command(command)
+
 
 if __name__ == "__main__":
     update_dependencies()
