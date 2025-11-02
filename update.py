@@ -26,6 +26,7 @@ def update_dependencies():
         "deno upgrade",
         "flutter upgrade --force",
         "rustup update",
+        "pnpm self-update",
         "npm i -g vitest firebase firebase-tools node nodemon npm typescript vercel pnpm @github/copilot bun wrangler drizzle-kit drizzle-orm  @google/gemini-cli --force",
         # "pnpm add -g pnpm genkit-sli",
         # "composer global require laravel/installer",
