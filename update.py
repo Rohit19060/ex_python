@@ -28,6 +28,7 @@ def update_dependencies():
         "rustup update",
         "pnpm self-update",
         "npm i -g vitest firebase firebase-tools node nodemon npm typescript vercel pnpm @github/copilot bun wrangler drizzle-kit drizzle-orm  @google/gemini-cli --force",
+        "bun add -g opencode-ai",
         # "pnpm add -g pnpm genkit-sli",
         # "composer global require laravel/installer",
     ]
