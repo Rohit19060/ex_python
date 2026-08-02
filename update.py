@@ -7,8 +7,9 @@ from tqdm import tqdm
 def run_command(command):
     try:
         subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
-    except subprocess.CalledProcessError:
-        print(f"No update available for {command}")
+    except subprocess.CalledProcessError as e:
+        print(f"\nFAILED: {command}")
+        print(e.stderr)
 
 
 def update_dependencies():
@@ -27,18 +28,15 @@ def update_dependencies():
         "flutter upgrade --force",
         "rustup update",
         "pnpm self-update",
-        "npm i -g vitest firebase firebase-tools node nodemon npm typescript vercel pnpm @github/copilot bun wrangler drizzle-kit drizzle-orm  @google/gemini-cli --force",
+        'powershell -c "irm bun.sh/install.ps1 | iex"',
         "bun add -g opencode-ai",
-        # "pnpm add -g pnpm genkit-sli",
-        # "composer global require laravel/installer",
+        "npm install -g npm@latest",
     ]
 
     windows_commands = [
-        "git update-git-for-windows",
-        "scoop update",
-        "scoop update *",
+        # "scoop update",
         "python.exe -m pip install --upgrade pip",
-        "winget upgrade JanDeDobbeleer.OhMyPosh -s winget",
+        # "winget upgrade JanDeDobbeleer.OhMyPosh -s winget",
         "winget upgrade Cloudflare.cloudflared -s winget",
     ]
 
